@@ -1,0 +1,71 @@
+<form style="margin: 20px;" [formGroup]="form">
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <label for="formGroupExampleInput">Fecha</label>
+        <input type="date" class="form-control" formControlName="fecha">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Trabajador</label>
+        <select class="custom-select" formControlName="trabajador">
+          <option selected>Choose...</option>
+          <option value="Matias Ortega">Matias Ortega</option>
+          <option value="Nachito">Nachito</option>
+          <option value="David Ruz">David Ruz</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Area</label>
+        <select class="custom-select" formControlName="area">
+          <option selected>Choose...</option>
+          <option value="Aserradero">Aserradero</option>
+          <option value="Pellet">Pellet</option>
+          <option value="Armado">Armado</option>
+        </select>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Equipo</label>
+        <input type="text" class="form-control" formControlName="equipo">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Horas</label>
+        <input type="number" class="form-control" formControlName="horas">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Comentario</label>
+        <input type="text" class="form-control" formControlName="comentario">
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary btn-lg btn-block" [disabled]="form.invalid"
+      (click)="ingresar()">Ingresar</button>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Fecha</th>
+        <th scope="col">Trabajador</th>
+        <th scope="col">Area</th>
+        <th scope="col">Equipo</th>
+        <th scope="col">Horas</th>
+        <th scope="col">Comentario</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngIf="this._HorasExtrasService.obtener() | async as items">
+        <tr *ngFor="let item of items">
+          <td >{{item.fecha}}</td>
+          <td>{{item.trabajador}}</td>
+          <td>{{item.area}}</td>
+          <td>{{item.equipo}}</td>
+          <td>{{item.horas}}</td>
+          <td>{{item.comentario}}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+
+
+</form>

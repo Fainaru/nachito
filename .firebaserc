@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "transarto-a9ef6": {
+      "hosting": {
+        "nacho": [
+          "transarto-a9ef6"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "transarto-a9ef6"
+  }
+}

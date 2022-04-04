@@ -103,6 +103,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "nacho:build:production",
+            "firebaseProject": "transarto-a9ef6",
+            "firebaseHostingSite": "transarto-a9ef6"
+          }
         }
       }
     }
